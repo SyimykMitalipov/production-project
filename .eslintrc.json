@@ -1,0 +1,177 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "react-hooks", "i18next"],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:i18next/recommended",
+    "plugin:import/recommended"
+  ],
+  "globals": { "__IS_DEV__": true, "__API__": true, "__PROJECT__": true },
+  "rules": {
+    "import/default": "off",
+    "react/display-name": "off",
+    "import/no-unresolved": "off",
+    "no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "index",
+          "sibling",
+          "parent",
+          "internal",
+          "external",
+          "builtin",
+          "object",
+          "type"
+        ]
+      }
+    ],
+
+    "i18next/no-literal-string": [
+      "warn",
+      {
+        "markupOnly": true,
+        "ignoreAttribute": ["data-testid", "to"]
+      }
+    ],
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "jest": true
+    },
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    "quotes": ["error", "single"],
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true
+      }
+    ],
+    "prefer-const": "error",
+    "indent": ["error", 2],
+    "semi": ["error", "always"],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "MemberExpression[property.name='log']",
+        "message": "Are you sure about console log?"
+      }
+    ],
+    "no-mixed-operators": [
+      "error",
+      {
+        "groups": [
+          ["+", "-", "*", "/", "%", "**"],
+          ["&", "|", "^", "~", "<<", ">>", ">>>"],
+          ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+          ["&&", "||"],
+          ["in", "instanceof"]
+        ],
+        "allowSamePrecedence": true
+      }
+    ],
+    "no-empty": [
+      "error",
+      {
+        "allowEmptyCatch": true
+      }
+    ],
+    "no-trailing-spaces": "error",
+    "no-var": "error",
+    "no-self-compare": "error",
+    "no-eval": "error",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 2,
+        "maxEOF": 0,
+        "maxBOF": 0
+      }
+    ],
+    "no-multi-spaces": [
+      "error",
+      {
+        "ignoreEOLComments": true,
+        "exceptions": {
+          "PropertyAssignment": false
+        }
+      }
+    ],
+    "arrow-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "no-useless-computed-key": "error",
+    "space-in-parens": ["error", "never"],
+    "space-before-blocks": "error",
+    "no-whitespace-before-property": "error",
+    "key-spacing": "error",
+    "no-lone-blocks": "error",
+    "computed-property-spacing": ["error", "always"],
+    "block-spacing": ["error", "always"],
+    "array-bracket-newline": ["error", "consistent"],
+    "object-curly-newline": [
+      "error",
+      {
+        "multiline": true
+      }
+    ],
+    "array-element-newline": [
+      "error",
+      {
+        "minItems": 6
+      }
+    ],
+    "object-property-newline": [
+      "error",
+      {
+        "allowAllPropertiesOnSameLine": true
+      }
+    ],
+    "array-bracket-spacing": ["error", "always"],
+    "object-curly-spacing": ["error", "always"],
+    "eol-last": ["error", "always"],
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/src/**/*.{test,stoires}.{ts,tsx}"],
+      "rules": {
+        "i18next/no-literal-string": "off"
+      }
+    }
+  ]
+}

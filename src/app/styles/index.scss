@@ -1,0 +1,28 @@
+@import "reset";
+@import "themes/dark";
+@import "themes/normal";
+@import "variables/global";
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    font: var(--font-m);
+    background: var(--bg-color);
+    color: var(--primary-color);
+    transition: background 0.5s;
+    min-height: 100vh;
+}
+
+.content-page {
+    display: flex;
+}
+
+.page-wrapper {
+    flex-grow: 1;
+    padding: 20px;
+}
