@@ -1,4 +1,7 @@
 {
-    "translate": "Перевод",
-    "language": "Русский"
+  "translate": "Перевод",
+  "language": "Русский",
+  "Page is Not Found": "Страница не найдена",
+  "Something was wrong": "Что то пошло не так",
+  "Reload Page": "Обновить страницу"
 }
