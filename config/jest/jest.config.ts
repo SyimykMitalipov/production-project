@@ -3,7 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from 'jest';
+import type { Config } from "jest";
+import path from "path";
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -17,30 +18,32 @@ const config: Config = {
 
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
-  testEnvironment: 'jsdom',
-  coveragePathIgnorePatterns: [
-    '/node_modules/'
-  ],
-  moduleDirectories: [
-    'node_modules'
-  ],
+  testEnvironment: "jsdom",
+  coveragePathIgnorePatterns: ["/node_modules/"],
+  moduleDirectories: ["node_modules"],
 
   moduleFileExtensions: [
-    'js',
-    'mjs',
-    'cjs',
-    'jsx',
-    'ts',
-    'tsx',
-    'json',
-    'node'
+    "js",
+    "mjs",
+    "cjs",
+    "jsx",
+    "ts",
+    "tsx",
+    "json",
+    "node",
   ],
+  modulePaths: ["<rootDir>src"],
+
   testMatch: [
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
+    "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
     // '**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'
   ],
-  rootDir: '../../',
-
+  rootDir: "../../",
+  setupFilesAfterEnv: ["<rootDir>config/jest/setupTest.ts"],
+  moduleNameMapper: {
+    "\\.(s?css)$": "identity-obj-proxy",
+    "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
+  },
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -52,7 +55,6 @@ const config: Config = {
   // coverageDirectory: undefined,
 
   // An array of regexp pattern strings used to skip coverage collection
-
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -96,9 +98,7 @@ const config: Config = {
 
   // An array of directory names to be searched recursively up from the requiring module's location
 
-
   // An array of file extensions your modules use
-
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
@@ -164,7 +164,6 @@ const config: Config = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
